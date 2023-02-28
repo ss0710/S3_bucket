@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S3 Bucket</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- UI router CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js"
+      integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Angular route CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  </head>
+  <body style="text-align: center" ng-app="myApp" ng-controller="index">
+    <h3 style="letter-spacing: 2px">S3 Bucket</h3>
+    <img
+      src="https://supportapp-pos.s3.amazonaws.com/3deda8b9a3e6f35475af6abf0fd6dad6"
+      alt="sdalfn"
+    />
+    <input type="file" file-model="formData.image" />
+    <button ng-click="uploadPhoto()">Upload Photo</button>
+    <script src="./index.js"></script>
+    <script src="./customDirective.js"></script>
+  </body>
+</html>
