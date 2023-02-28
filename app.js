@@ -4,8 +4,9 @@ const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 bodyParser = require("body-parser");
 var cors = require("cors");
+var fs = require("fs");
 
-var { uploadFile } = require("./s3");
+var { uploadFile, getFileStream } = require("./s3");
 
 var app = express();
 app.use(cors());
@@ -14,6 +15,14 @@ app.use(bodyParser.json());
 
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/images/:key", (req, res) => {
+  var key = req.params.key;
+
+  var readStream = getFileStream(key);
+
+  readStream.pipe(res);
+});
 
 app.post("/images", upload.single("image"), (req, res) => {
   //   console.log(req.file);

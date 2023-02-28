@@ -33,4 +33,14 @@ function uploadFile(file, cb) {
     });
 }
 
+//download a file from s3 bucket
+function getFileStream(fileKey) {
+  var downloadParams = {
+    key: fileKey,
+    Bucket: bucketName,
+  };
+
+  s3.getObject(downloadParams).createReadStream();
+}
+
 exports.uploadFile = uploadFile;
